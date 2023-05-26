@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Aritra Saha</title>
+<link href='https://fonts.googleapis.com/css?family=Open Sans' rel='stylesheet'>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<style>
+.hovereffects{
+   margin: auto;
+   width: 420px;
+   height: 280px;
+   overflow: hidden;
+   position: relative;
+   text-align: center;
+   cursor: default;
+   margin-bottom: 10px;
+}
+
+.hovereffects .overlay{
+	width: 420px;
+	height: 280px;
+	position: absolute;
+	overflow: hidden;
+	bottom: 0;
+	left: 0;
+  right: 0;
+  top: 100;
+	opacity: 0;
+	background-color: rgba(0,0,0,0.5);
+  margin-top: 22%;
+}
+
+.hovereffects img{
+	display:inline-block;
+	position: relative;
+}
+
+.hovereffects h3{
+	text-transform: none;
+	color: #fff;
+	text-align: center;
+  font-family: Open Sans;
+	position: relative;
+	font-size: 15px;
+	background: rgba(0,0,0,0);
+  vertical-align: middle;
+}
+
+.hovereffects:hover .overlay{
+	opacity: 1;
+}
+
+.hovereffects:hover h2, .hovereffects:hover a.info{
+	opacity: 1;
+  -moz-transition: top 0.3s, right 0.3s, bottom 0.3s, left 0.3s;
+  -webkit-transition: top 0.3s, right 0.3s, bottom 0.3s, left 0.3s;
+  transition: top 0.3s, right 0.3s, bottom 0.3s, left 0.3s;
+}
+
+.hovereffects:hover a.info{
+  -moz-transition: top 0.3s, right 0.3s, bottom 0.3s, left 0.3s;
+  -webkit-transition: top 0.3s, right 0.3s, bottom 0.3s, left 0.3s;
+  transition: top 0.3s, right 0.3s, bottom 0.3s, left 0.3s;
+}
+
+/* Style the body */
+body {
+  font-family: Open Sans;
+  margin: 0;
+  text-align: center;
+}
+
+/* Center website */
+.main {
+  margin-left: 40px;
+  margin-right: 30px;
+}
+
+/* Image overlay */
+.container {
+  margin-left: 40px;
+  margin-right: 30px;
+}
+
+.column {
+  float: left;
+  width: 33%;
+}
+
+.row {
+  padding-bottom: 30px
+}
+
+/* Clearfix (clear floats) */
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #008CBA;
+  overflow: hidden;
+  width: 100%;
+  height: 0;
+  -moz-transition: top 0.3s, right 0.3s, bottom 0.3s, left 0.3s;
+  -webkit-transition: top 0.3s, right 0.3s, bottom 0.3s, left 0.3s;
+  transition: top 0.3s, right 0.3s, bottom 0.3s, left 0.3s;
+}
+
+.container:hover .overlay {
+  height: 22%;
+}
+
+/* Header/Logo Title */
+a {
+  text-decoration: none;
+  color: white;
+}
+.site-header {
+  border-bottom: 1px solid #fda172;
+  background-color: #fda172;
+  color: #fda172;
+  padding: .5em 1em;
+}
+
+.site-header::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.site-identity {
+  float: left;
+  color: #fda172;
+}
+
+.site-identity h1 {
+  font-size: 1.5em;
+  margin: .7em 0 .3em 0;
+  display: inline-block;
+}
+
+.site-identity img {
+  max-width: 70px;
+  float: left;
+  margin: 0 10px 0 0;
+  border-radius: 50%;
+  border-style: dashed;
+  border-color: white;
+  border-width: 3px;
+}
+
+.site-navigation {
+  float: right;
+  color: #fda172;
+}
+
+.site-navigation ul, li {
+  margin: 0;
+  padding: 0;
+  color: #fda172;
+}
+
+.site-navigation li {
+  display: inline-block;
+  margin: 1.4em 1em 1em 1em;
+  color: #fda172;
+}
+
+
+/* Button */
+.tab {
+    margin:0 auto;
+    display: flex;
+    justify-content: center;
+}
+
+.tab button {
+    font-family: Open Sans;
+    cursor: pointer;
+    border: 0px solid #fda172;
+    background-color: transparent;
+    height: 50px;
+    width: 350px;
+    color: #fda172;
+    font-size: 1.3em;
+    opacity: 0.6;
+    transition: 0.3s;
+    box-shadow: 0 6px 6px rgba(0, 0, 0, 0.1);
+}
+
+.tab button:hover {
+  opacity: 1;
+}
+
+/* Create an active/current tablink class */
+.tab button.active {
+  background-color: #f5f5f5;
+}
+
+.tabcontent {
+  animation: fadeEffect 1s; /* Fading effect takes 1 second */
+}
+
+/* Go from zero to full opacity */
+@keyframes fadeEffect {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+</style>
+</head>
+
+<body>
+
+  <header class="site-header">
+    <div class="site-identity">
+      <a href="#"><img src="C:\Users\sahaa\OneDrive\Documents\AritraSaha\IMG_1741_edited.JPG" alt="Me :))" /></a>
+    </div>
+    <nav class="site-navigation">
+      <ul class="nav">
+        <li><a href="https://www.linkedin.com/in/aritra--saha/"><img src="C:\Users\sahaa\OneDrive\Documents\AritraSaha\linkedin_icon.png" alt="Me :))" width=30px height=30px></a></li>
+        <li><a href="#"><img src="C:\Users\sahaa\OneDrive\Documents\AritraSaha\resume_icon.png" alt="Me :))" width=30px height=30px></a></li>
+        <li><a href="#"><img src="C:\Users\sahaa\OneDrive\Documents\AritraSaha\GitHub-Mark.png" alt="Me :))" width=30px height=30px></a></li>
+      </ul>
+    </nav>
+  </header>
+
+
+  <div class="tab" style="width: 100%">
+    <button class="tablinks" onclick="openSection(event, 'Writing')">Writing</button>
+    <button class="tablinks" onclick="openSection(event, 'Projects')">Projects</button>
+    <button class="tablinks" onclick="openSection(event, 'Photos')">Photos</button>
+    <button class="tablinks" onclick="openSection(event, 'About')" id="defaultOpen">About</button>
+  </div>
+  <br>
+  <br>
+
+  <div id="Writing" class="tabcontent">
+    <img src="C:\Users\sahaa\OneDrive\Documents\AritraSaha\potato-5039995_960_720.webp" alt="potato" height="200px" width="150px">
+    <br>
+    potato
+  </div>
+
+  <div id="Projects" class="tabcontent">
+    <img src="C:\Users\sahaa\OneDrive\Documents\AritraSaha\potato-5039995_960_720.webp" alt="potato" height="200px" width="150px">
+    <br>
+    potato
+  </div>
+
+  <div id="Photos" class="tabcontent">
+    <div class="container">
+    <div class="row">
+      <div class="column">
+      <div class="hovereffects">
+        <img src="C:\Users\sahaa\OneDrive\Documents\AritraSaha\Film\000002.jpg" width="100%">
+        <div class="overlay">
+          <h3>Fujifilm Quicksnap 400 / Busan, South Korea</h3>
+        </div>
+      </div>
+      </div>
+
+      <div class="column">
+      <div class="hovereffects">
+        <img src="C:\Users\sahaa\OneDrive\Documents\AritraSaha\Film\000005.jpg" width="100%">
+        <div class="overlay">
+          <h3>Fujifilm Quicksnap 400 / Busan, South Korea</h3>
+        </div>
+      </div>
+      </div>
+
+      <div class="column">
+      <div class="hovereffects">
+        <img src="C:\Users\sahaa\OneDrive\Documents\AritraSaha\Film\000012.jpg" width="100%">
+        <div class="overlay">
+          <h3>Fujifilm Quicksnap 400 / Jeju Island, South Korea</h3>
+        </div>
+      </div>
+      </div>
+
+      <div class="column">
+      <div class="hovereffects">
+        <img src="C:\Users\sahaa\OneDrive\Documents\AritraSaha\Film\000025.jpg" width="100%">
+        <div class="overlay">
+          <h3>Fujifilm Quicksnap 400 / Seoul, South Korea</h3>
+        </div>
+      </div>
+      </div>
+
+      <div class="column">
+      <div class="hovereffects">
+        <img src="C:\Users\sahaa\OneDrive\Documents\AritraSaha\Film\IMG_0575.jpg" width="100%">
+        <div class="overlay">
+          <h3>Fujifilm Quicksnap 400 / Taipei, Taiwan</h3>
+        </div>
+      </div>
+      </div>
+
+      <div class="column">
+      <div class="hovereffects">
+        <img src="C:\Users\sahaa\OneDrive\Documents\AritraSaha\Film\IMG_0576.jpg" width="100%">
+        <div class="overlay">
+          <h3>Fujifilm Quicksnap 400 / Taipei, Taiwan</h3>
+        </div>
+      </div>
+      </div>
+
+      <div class="column">
+      <div class="hovereffects">
+        <img src="C:\Users\sahaa\OneDrive\Documents\AritraSaha\Film\IMG_0584.jpg" width="100%">
+        <div class="overlay">
+          <h3>Fujifilm Quicksnap 400 / Taroko National Park, Taiwan</h3>
+        </div>
+      </div>
+      </div>
+
+      <div class="column">
+      <div class="hovereffects">
+        <img src="C:\Users\sahaa\OneDrive\Documents\AritraSaha\Film\IMG_0587.jpg" width="100%">
+        <div class="overlay">
+          <h3>Fujifilm Quicksnap 400 / Taroko National Park, Taiwan</h3>
+        </div>
+      </div>
+      </div>
+
+      <div class="column">
+      <div class="hovereffects">
+        <img src="C:\Users\sahaa\OneDrive\Documents\AritraSaha\Film\IMG_0594.jpg" width="100%">
+        <div class="overlay">
+          <h3>Fujifilm Quicksnap 400 / Jiufen, Taiwan</h3>
+        </div>
+      </div>
+      </div>
+
+      <div class="column">
+      <div class="hovereffects">
+        <img src="C:\Users\sahaa\OneDrive\Documents\AritraSaha\Film\IMG_0599.jpg" width="100%">
+        <div class="overlay">
+          <h3>Fujifilm Quicksnap 400 / Jiufen, Taiwan</h3>
+        </div>
+      </div>
+      </div>
+
+      <div class="column">
+      <div class="hovereffects">
+        <img src="C:\Users\sahaa\OneDrive\Documents\AritraSaha\Film\IMG_1558.jpg" width="100%">
+        <div class="overlay">
+          <h3>Fujifilm Quicksnap 400 / Seoul, South Korea</h3>
+        </div>
+      </div>
+      </div>
+
+      <div class="column">
+      <div class="hovereffects">
+        <img src="C:\Users\sahaa\OneDrive\Documents\AritraSaha\Film\IMG_1562.jpg" width="100%">
+        <div class="overlay">
+          <h3>Fujifilm Quicksnap 400 / Nami Island, South Korea</h3>
+        </div>
+      </div>
+      </div>
+
+      <div class="column">
+      <div class="hovereffects">
+        <img src="C:\Users\sahaa\OneDrive\Documents\AritraSaha\Film\IMG_1578.jpg" width="100%">
+        <div class="overlay">
+          <h3>Fujifilm Quicksnap 400 / Kamakura, Japan</h3>
+        </div>
+      </div>
+      </div>
+
+      <div class="column">
+      <div class="hovereffects">
+        <img src="C:\Users\sahaa\OneDrive\Documents\AritraSaha\Film\IMG_1592.jpg" width="100%">
+        <div class="overlay">
+          <h3>Fujifilm Quicksnap 400 / Tokyo, Japan</h3>
+        </div>
+      </div>
+      </div>
+
+      <div class="column">
+      <div class="hovereffects">
+        <img src="C:\Users\sahaa\OneDrive\Documents\AritraSaha\Film\IMG_1598.jpg" width="100%">
+        <div class="overlay">
+          <h3>Fujifilm Quicksnap 400 / Tokyo, Japan</h3>
+        </div>
+      </div>
+      </div>
+
+      <div class="column">
+      <div class="hovereffects">
+        <img src="C:\Users\sahaa\OneDrive\Documents\AritraSaha\Film\IMG_2293.jpg" width="100%">
+        <div class="overlay">
+          <h3>Minolta X-7A / Fujifilm Superia X-Tra 400 / Toronto, Canada</h3>
+        </div>
+      </div>
+      </div>
+
+      <div class="column">
+      <div class="hovereffects">
+        <img src="C:\Users\sahaa\OneDrive\Documents\AritraSaha\Film\IMG_2296.jpg" width="100%">
+        <div class="overlay">
+          <h3>Minolta X-7A / Fujifilm Superia X-Tra 400 / Toronto, Canada</h3>
+        </div>
+      </div>
+      </div>
+
+      <div class="column">
+      <div class="hovereffects">
+        <img src="C:\Users\sahaa\OneDrive\Documents\AritraSaha\Film\IMG_2297.jpg" width="100%">
+        <div class="overlay">
+          <h3>Minolta X-7A / Fujifilm Superia X-Tra 400 / Toronto, Canada</h3>
+        </div>
+      </div>
+      </div>
+
+      <div class="column">
+      <div class="hovereffects">
+        <img src="C:\Users\sahaa\OneDrive\Documents\AritraSaha\Film\IMG_2301.jpg" width="100%">
+        <div class="overlay">
+          <h3>Minolta X-7A / Fujifilm Superia X-Tra 400 / Toronto, Canada</h3>
+        </div>
+      </div>
+      </div>
+
+      <div class="column">
+      <div class="hovereffects">
+        <img src="C:\Users\sahaa\OneDrive\Documents\AritraSaha\Film\IMG_2303.jpg" width="100%">
+        <div class="overlay">
+          <h3>Minolta X-7A / Fujifilm Superia X-Tra 400 / Montreal, Canada</h3>
+        </div>
+      </div>
+      </div>
+
+      <div class="column">
+      <div class="hovereffects">
+        <img src="C:\Users\sahaa\OneDrive\Documents\AritraSaha\Film\IMG_2304.jpg" width="100%">
+        <div class="overlay">
+          <h3>Minolta X-7A / Fujifilm Superia X-Tra 400 / Montreal, Canada</h3>
+        </div>
+      </div>
+      </div>
+
+      <div class="column">
+      <div class="hovereffects">
+        <img src="C:\Users\sahaa\OneDrive\Documents\AritraSaha\Film\IMG_2305.jpg" width="100%">
+        <div class="overlay">
+          <h3>Minolta X-7A / Fujifilm Superia X-Tra 400 / Montreal, Canada</h3>
+        </div>
+      </div>
+      </div>
+
+      <div class="column">
+      <div class="hovereffects">
+        <img src="C:\Users\sahaa\OneDrive\Documents\AritraSaha\Film\IMG_2306.jpg" width="100%">
+        <div class="overlay">
+          <h3>Minolta X-7A / Fujifilm Superia X-Tra 400 / Montreal, Canada</h3>
+        </div>
+      </div>
+      </div>
+
+      <div class="column">
+      <div class="hovereffects">
+        <img src="C:\Users\sahaa\OneDrive\Documents\AritraSaha\Film\IMG_2308.jpg" width="100%">
+        <div class="overlay">
+          <h3>Minolta X-7A / Fujifilm Superia X-Tra 400 / Vancouver, Canada</h3>
+        </div>
+      </div>
+      </div>
+
+      <div class="column">
+      <div class="hovereffects">
+        <img src="C:\Users\sahaa\OneDrive\Documents\AritraSaha\Film\IMG_2310.jpg" width="100%">
+        <div class="overlay">
+          <h3>Minolta X-7A / Fujifilm Superia X-Tra 400 / Vancouver, Canada</h3>
+        </div>
+      </div>
+      </div>
+
+      <div class="column">
+      <div class="hovereffects">
+        <img src="C:\Users\sahaa\OneDrive\Documents\AritraSaha\Film\IMG_2315.jpg" width="100%">
+        <div class="overlay">
+          <h3>Minolta X-7A / Fujifilm Superia X-Tra 400 / Vancouver, Canada</h3>
+        </div>
+      </div>
+      </div>
+
+      <div class="column">
+      <div class="hovereffects">
+        <img src="C:\Users\sahaa\OneDrive\Documents\AritraSaha\Film\IMG_2318.jpg" width="100%">
+        <div class="overlay">
+          <h3>Minolta X-7A / Fujifilm Superia X-Tra 400 / Vancouver, Canada</h3>
+        </div>
+      </div>
+      </div>
+
+    </div>
+    </div>
+  </div>
+
+  <div id="About" class="tabcontent">
+    <img src="C:\Users\sahaa\OneDrive\Documents\AritraSaha\potato-5039995_960_720.webp" alt="potato" height="200px" width="150px">
+    <br>
+    potato
+  </div>
+
+  <script>
+function openSection(evt, sectionName) {
+  var i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablinks");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
+  }
+  document.getElementById(sectionName).style.display = "block";
+  evt.currentTarget.className += " active";
+}
+// Get the element with id="defaultOpen" and click on it
+document.getElementById("defaultOpen").click();
+</script>
+
+  <br>
+  <br>
+  <br>
+
+
+</body>
+</html>
