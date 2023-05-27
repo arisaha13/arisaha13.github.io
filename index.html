@@ -8,62 +8,66 @@
 
 
 <style>
-.hovereffects{
-   margin: auto;
-   width: 420px;
-   height: 280px;
-   overflow: hidden;
-   position: relative;
-   text-align: center;
-   cursor: default;
-   margin-bottom: 10px;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.hovereffects .overlay{
-	width: 420px;
-	height: 280px;
-	position: absolute;
-	overflow: hidden;
-	bottom: 0;
-	left: 0;
-  right: 0;
-  top: 100;
-	opacity: 0;
-	background-color: rgba(0,0,0,0.5);
-  margin-top: 22%;
+ul {
+  list-style: none;
 }
 
-.hovereffects img{
-	display:inline-block;
-	position: relative;
+.container1 {
 }
 
-.hovereffects h3{
-	text-transform: none;
-	color: #fff;
-	text-align: center;
-  font-family: Open Sans;
-	position: relative;
-	font-size: 15px;
-	background: rgba(0,0,0,0);
+/* Responsive image gallery rules begin*/
+
+.image-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+
+.image-gallery > li {
+  flex-basis: 360px; /*width: 360px;*/
+  position: relative;
+  cursor: default;
+}
+
+.image-gallery::after {
+  content: "";
+  flex-basis: 360px;
+}
+
+.image-gallery li img {
+  object-fit: cover;
+  max-width: 100%;
+  height: auto;
   vertical-align: middle;
 }
 
-.hovereffects:hover .overlay{
-	opacity: 1;
+.overlay {
+  position: absolute;
+  width: 100%;
+  height: 20%;
+  background: rgba(0, 0, 0, 0.5);
+  bottom: 0;
+  left: 0;
+  transform: scale(0);
+  transition: top 0.3s, right 0.3s, bottom 0.3s, left 0.3s;
+  color: #fff;
+  /* center overlay text */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }
 
-.hovereffects:hover h2, .hovereffects:hover a.info{
-	opacity: 1;
-  -moz-transition: top 0.3s, right 0.3s, bottom 0.3s, left 0.3s;
-  -webkit-transition: top 0.3s, right 0.3s, bottom 0.3s, left 0.3s;
-  transition: top 0.3s, right 0.3s, bottom 0.3s, left 0.3s;
-}
-
-.hovereffects:hover a.info{
-  -moz-transition: top 0.3s, right 0.3s, bottom 0.3s, left 0.3s;
-  -webkit-transition: top 0.3s, right 0.3s, bottom 0.3s, left 0.3s;
-  transition: top 0.3s, right 0.3s, bottom 0.3s, left 0.3s;
+/* hover */
+.image-gallery li:hover .overlay {
+  transform: scale(1);
 }
 
 /* Style the body */
@@ -71,52 +75,6 @@ body {
   font-family: Open Sans;
   margin: 0;
   text-align: center;
-}
-
-/* Center website */
-.main {
-  margin-left: 40px;
-  margin-right: 30px;
-}
-
-/* Image overlay */
-.container {
-  margin-left: 40px;
-  margin-right: 30px;
-}
-
-.column {
-  float: left;
-  width: 33%;
-}
-
-.row {
-  padding-bottom: 30px
-}
-
-/* Clearfix (clear floats) */
-.row::after {
-  content: "";
-  clear: both;
-  display: table;
-}
-
-.overlay {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background-color: #008CBA;
-  overflow: hidden;
-  width: 100%;
-  height: 0;
-  -moz-transition: top 0.3s, right 0.3s, bottom 0.3s, left 0.3s;
-  -webkit-transition: top 0.3s, right 0.3s, bottom 0.3s, left 0.3s;
-  transition: top 0.3s, right 0.3s, bottom 0.3s, left 0.3s;
-}
-
-.container:hover .overlay {
-  height: 22%;
 }
 
 /* Header/Logo Title */
@@ -175,6 +133,17 @@ a {
   color: #fda172;
 }
 
+/* Add media queries for responsiveness - when the screen is 500px wide or less, stack the links on top of each other */
+@media screen and (max-width: 500px) {
+  .site-header a {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+  .site-navigation {
+    float: none;
+  }
+}
 
 /* Button */
 .tab {
@@ -257,252 +226,117 @@ a {
   </div>
 
   <div id="Photos" class="tabcontent">
-    <div class="container">
-    <div class="row">
-      <div class="column">
-      <div class="hovereffects">
-        <img src="Film/000002.jpg" width="100%">
-        <div class="overlay">
-          <h3>Fujifilm Quicksnap 400 / Busan, South Korea</h3>
-        </div>
-      </div>
-      </div>
-
-      <div class="column">
-      <div class="hovereffects">
-        <img src="Film/000005.jpg" width="100%">
-        <div class="overlay">
-          <h3>Fujifilm Quicksnap 400 / Busan, South Korea</h3>
-        </div>
-      </div>
-      </div>
-
-      <div class="column">
-      <div class="hovereffects">
-        <img src="Film/000012.jpg" width="100%">
-        <div class="overlay">
-          <h3>Fujifilm Quicksnap 400 / Jeju Island, South Korea</h3>
-        </div>
-      </div>
-      </div>
-
-      <div class="column">
-      <div class="hovereffects">
-        <img src="Film/000025.jpg" width="100%">
-        <div class="overlay">
-          <h3>Fujifilm Quicksnap 400 / Seoul, South Korea</h3>
-        </div>
-      </div>
-      </div>
-
-      <div class="column">
-      <div class="hovereffects">
-        <img src="Film/IMG_0575.JPG" width="100%">
-        <div class="overlay">
-          <h3>Fujifilm Quicksnap 400 / Taipei, Taiwan</h3>
-        </div>
-      </div>
-      </div>
-
-      <div class="column">
-      <div class="hovereffects">
-        <img src="Film/IMG_0576.JPG" width="100%">
-        <div class="overlay">
-          <h3>Fujifilm Quicksnap 400 / Taipei, Taiwan</h3>
-        </div>
-      </div>
-      </div>
-
-      <div class="column">
-      <div class="hovereffects">
-        <img src="Film/IMG_0584.JPG" width="100%">
-        <div class="overlay">
-          <h3>Fujifilm Quicksnap 400 / Taroko National Park, Taiwan</h3>
-        </div>
-      </div>
-      </div>
-
-      <div class="column">
-      <div class="hovereffects">
-        <img src="Film/IMG_0587.JPG" width="100%">
-        <div class="overlay">
-          <h3>Fujifilm Quicksnap 400 / Taroko National Park, Taiwan</h3>
-        </div>
-      </div>
-      </div>
-
-      <div class="column">
-      <div class="hovereffects">
-        <img src="Film/IMG_0594.JPG" width="100%">
-        <div class="overlay">
-          <h3>Fujifilm Quicksnap 400 / Jiufen, Taiwan</h3>
-        </div>
-      </div>
-      </div>
-
-      <div class="column">
-      <div class="hovereffects">
-        <img src="Film/IMG_0599.JPG" width="100%">
-        <div class="overlay">
-          <h3>Fujifilm Quicksnap 400 / Jiufen, Taiwan</h3>
-        </div>
-      </div>
-      </div>
-
-      <div class="column">
-      <div class="hovereffects">
-        <img src="Film/IMG_1558.JPG" width="100%">
-        <div class="overlay">
-          <h3>Fujifilm Quicksnap 400 / Seoul, South Korea</h3>
-        </div>
-      </div>
-      </div>
-
-      <div class="column">
-      <div class="hovereffects">
-        <img src="Film/IMG_1562.JPG" width="100%">
-        <div class="overlay">
-          <h3>Fujifilm Quicksnap 400 / Nami Island, South Korea</h3>
-        </div>
-      </div>
-      </div>
-
-      <div class="column">
-      <div class="hovereffects">
-        <img src="Film/IMG_1578.JPG" width="100%">
-        <div class="overlay">
-          <h3>Fujifilm Quicksnap 400 / Kamakura, Japan</h3>
-        </div>
-      </div>
-      </div>
-
-      <div class="column">
-      <div class="hovereffects">
-        <img src="Film/IMG_1592.JPG" width="100%">
-        <div class="overlay">
-          <h3>Fujifilm Quicksnap 400 / Tokyo, Japan</h3>
-        </div>
-      </div>
-      </div>
-
-      <div class="column">
-      <div class="hovereffects">
-        <img src="Film/IMG_1598.JPG" width="100%">
-        <div class="overlay">
-          <h3>Fujifilm Quicksnap 400 / Tokyo, Japan</h3>
-        </div>
-      </div>
-      </div>
-
-      <div class="column">
-      <div class="hovereffects">
-        <img src="Film/IMG_2293.JPG" width="100%">
-        <div class="overlay">
-          <h3>Minolta X-7A / Fujifilm Superia X-Tra 400 / Toronto, Canada</h3>
-        </div>
-      </div>
-      </div>
-
-      <div class="column">
-      <div class="hovereffects">
-        <img src="Film/IMG_2296.JPG" width="100%">
-        <div class="overlay">
-          <h3>Minolta X-7A / Fujifilm Superia X-Tra 400 / Toronto, Canada</h3>
-        </div>
-      </div>
-      </div>
-
-      <div class="column">
-      <div class="hovereffects">
-        <img src="Film/IMG_2297.JPG" width="100%">
-        <div class="overlay">
-          <h3>Minolta X-7A / Fujifilm Superia X-Tra 400 / Toronto, Canada</h3>
-        </div>
-      </div>
-      </div>
-
-      <div class="column">
-      <div class="hovereffects">
-        <img src="Film/IMG_2301.JPG" width="100%">
-        <div class="overlay">
-          <h3>Minolta X-7A / Fujifilm Superia X-Tra 400 / Toronto, Canada</h3>
-        </div>
-      </div>
-      </div>
-
-      <div class="column">
-      <div class="hovereffects">
-        <img src="Film/IMG_2303.JPG" width="100%">
-        <div class="overlay">
-          <h3>Minolta X-7A / Fujifilm Superia X-Tra 400 / Montreal, Canada</h3>
-        </div>
-      </div>
-      </div>
-
-      <div class="column">
-      <div class="hovereffects">
-        <img src="Film/IMG_2304.JPG" width="100%">
-        <div class="overlay">
-          <h3>Minolta X-7A / Fujifilm Superia X-Tra 400 / Montreal, Canada</h3>
-        </div>
-      </div>
-      </div>
-
-      <div class="column">
-      <div class="hovereffects">
-        <img src="Film/IMG_2305.JPG" width="100%">
-        <div class="overlay">
-          <h3>Minolta X-7A / Fujifilm Superia X-Tra 400 / Montreal, Canada</h3>
-        </div>
-      </div>
-      </div>
-
-      <div class="column">
-      <div class="hovereffects">
-        <img src="Film/IMG_2306.JPG" width="100%">
-        <div class="overlay">
-          <h3>Minolta X-7A / Fujifilm Superia X-Tra 400 / Montreal, Canada</h3>
-        </div>
-      </div>
-      </div>
-
-      <div class="column">
-      <div class="hovereffects">
-        <img src="Film/IMG_2308.JPG" width="100%">
-        <div class="overlay">
-          <h3>Minolta X-7A / Fujifilm Superia X-Tra 400 / Vancouver, Canada</h3>
-        </div>
-      </div>
-      </div>
-
-      <div class="column">
-      <div class="hovereffects">
-        <img src="Film/IMG_2310.JPG" width="100%">
-        <div class="overlay">
-          <h3>Minolta X-7A / Fujifilm Superia X-Tra 400 / Vancouver, Canada</h3>
-        </div>
-      </div>
-      </div>
-
-      <div class="column">
-      <div class="hovereffects">
-        <img src="Film/IMG_2315.JPG" width="100%">
-        <div class="overlay">
-          <h3>Minolta X-7A / Fujifilm Superia X-Tra 400 / Vancouver, Canada</h3>
-        </div>
-      </div>
-      </div>
-
-      <div class="column">
-      <div class="hovereffects">
-        <img src="Film/IMG_2318.JPG" width="100%">
-        <div class="overlay">
-          <h3>Minolta X-7A / Fujifilm Superia X-Tra 400 / Vancouver, Canada</h3>
-        </div>
-      </div>
-      </div>
-
-    </div>
+    <div class="container1">
+      <ul class="image-gallery">
+        <li>
+          <img src="Film/000002.jpg" />
+          <div class="overlay"><span>Fujifilm Quicksnap 400 / Busan, South Korea</span></div>
+        </li>
+        <li>
+          <img src="Film/000005.jpg" />
+          <div class="overlay"><span>Fujifilm Quicksnap 400 / Busan, South Korea</span></div>
+        </li>
+        <li>
+          <img src="Film/000012.jpg" />
+          <div class="overlay"><span>Fujifilm Quicksnap 400 / Jeju Island, South Korea</span></div>
+        </li>
+        <li>
+          <img src="Film/000025.jpg" />
+          <div class="overlay"><span>Fujifilm Quicksnap 400 / Seoul, South Korea</span></div>
+        </li>
+        <li>
+          <img src="Film/IMG_0575.JPG" />
+          <div class="overlay"><span>Fujifilm Quicksnap 400 / Taipei, Taiwan</span></div>
+        </li>
+        <li>
+          <img src="Film/IMG_0576.JPG" />
+          <div class="overlay"><span>Fujifilm Quicksnap 400 / Taipei, Taiwan</span></div>
+        </li>
+        <li>
+          <img src="Film/IMG_0584.JPG" />
+          <div class="overlay"><span>Fujifilm Quicksnap 400 / Taroko National Park, Taiwan</span></div>
+        </li>
+        <li>
+          <img src="Film/IMG_0587.JPG" />
+          <div class="overlay"><span>Fujifilm Quicksnap 400 / Taroko National Park, Taiwan</span></div>
+        </li>
+        <li>
+          <img src="Film/IMG_0594.JPG" />
+          <div class="overlay"><span>Fujifilm Quicksnap 400 / Jiufen, Taiwan</span></div>
+        </li>
+        <li>
+          <img src="Film/IMG_0599.JPG" />
+          <div class="overlay"><span>Fujifilm Quicksnap 400 / Jiufen, Taiwan</span></div>
+        </li>
+        <li>
+          <img src="Film/IMG_1558.JPG" />
+          <div class="overlay"><span>Fujifilm Quicksnap 400 / Seoul, South Korea</span></div>
+        </li>
+        <li>
+          <img src="Film/IMG_1562.JPG" />
+          <div class="overlay"><span>Fujifilm Quicksnap 400 / Nami Island, South Korea</span></div>
+        </li>
+        <li>
+          <img src="Film/IMG_1578.JPG" />
+          <div class="overlay"><span>Fujifilm Quicksnap 400 / Kamakura, Japan</span></div>
+        </li>
+        <li>
+          <img src="Film/IMG_1592.JPG" />
+          <div class="overlay"><span>Fujifilm Quicksnap 400 / Tokyo, Japan</span></div>
+        </li>
+        <li>
+          <img src="Film/IMG_1598.JPG" />
+          <div class="overlay"><span>Fujifilm Quicksnap 400 / Tokyo, Japan</span></div>
+        </li>
+        <li>
+          <img src="Film/IMG_2293.JPG" />
+          <div class="overlay"><span>Minolta X-7A / Fujifilm Superia X-Tra 400 / Toronto, Canada</span></div>
+        </li>
+        <li>
+          <img src="Film/IMG_2296.JPG" />
+          <div class="overlay"><span>Minolta X-7A / Fujifilm Superia X-Tra 400 / Toronto, Canada</span></div>
+        </li>
+        <li>
+          <img src="Film/IMG_2297.JPG" />
+          <div class="overlay"><span>Minolta X-7A / Fujifilm Superia X-Tra 400 / Toronto, Canada</span></div>
+        </li>
+        <li>
+          <img src="Film/IMG_2301.JPG" />
+          <div class="overlay"><span>Minolta X-7A / Fujifilm Superia X-Tra 400 / Toronto, Canada</span></div>
+        </li>
+        <li>
+          <img src="Film/IMG_2303.JPG" />
+          <div class="overlay"><span>Minolta X-7A / Fujifilm Superia X-Tra 400 / Montreal, Canada</span></div>
+        </li>
+        <li>
+          <img src="Film/IMG_2304.JPG" />
+          <div class="overlay"><span>Minolta X-7A / Fujifilm Superia X-Tra 400 / Montreal, Canada</span></div>
+        </li>
+        <li>
+          <img src="Film/IMG_2305.JPG" />
+          <div class="overlay"><span>Minolta X-7A / Fujifilm Superia X-Tra 400 / Montreal, Canada</span></div>
+        </li>
+        <li>
+          <img src="Film/IMG_2306.JPG" />
+          <div class="overlay"><span>Minolta X-7A / Fujifilm Superia X-Tra 400 / Montreal, Canada</span></div>
+        </li>
+        <li>
+          <img src="Film/IMG_2308.JPG" />
+          <div class="overlay"><span>Minolta X-7A / Fujifilm Superia X-Tra 400 / Vancouver, Canada</span></div>
+        </li>
+        <li>
+          <img src="Film/IMG_2310.JPG" />
+          <div class="overlay"><span>Minolta X-7A / Fujifilm Superia X-Tra 400 / Vancouver, Canada</span></div>
+        </li>
+        <li>
+          <img src="Film/IMG_2315.JPG" />
+          <div class="overlay"><span>Minolta X-7A / Fujifilm Superia X-Tra 400 / Vancouver, Canada</span></div>
+        </li>
+        <li>
+          <img src="Film/IMG_2318.JPG" />
+          <div class="overlay"><span>Minolta X-7A / Fujifilm Superia X-Tra 400 / Vancouver, Canada</span></div>
+        </li>
+      </ul>
     </div>
   </div>
 
