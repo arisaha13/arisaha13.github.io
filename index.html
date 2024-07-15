@@ -233,6 +233,10 @@ Width: 100%;
   <br>
 
   <div id="Projects" class="tabcontent">
+    <style>
+    * {
+      box-sizing: border-box;
+    }
     .column {
       float: left;
       width: 33.33%;
@@ -245,18 +249,25 @@ Width: 100%;
       clear: both;
     }
 
+    @media screen and (max-width: 600px) {
+      .column {
+        width: 100%;
+      }
+    }
+    </style>
+
     <div class="row">
-      <div class="column" style="background-color:#aaa;">
+      <div class="column" style="background-color:#ffbf99;">
         <img src="potato-5039995_960_720.webp" alt="potato" height="200px" width="150px">
         <br>
         potato
       </div>
-      <div class="column" style="background-color:#bbb;">
+      <div class="column" style="background-color:#ff8b47;">
         <img src="potato-5039995_960_720.webp" alt="potato" height="200px" width="150px">
         <br>
         potato
       </div>
-      <div class="column" style="background-color:#ccc;">
+      <div class="column" style="background-color:#f45b00;">
         <img src="potato-5039995_960_720.webp" alt="potato" height="200px" width="150px">
         <br>
         potato
