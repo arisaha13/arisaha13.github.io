@@ -17,7 +17,9 @@
 <meta name="twitter:title" content="Aritra Saha">
 <meta name="twitter:description" content="Aritra Saha's personal site — film photography from trips around the world, and a playground for new ideas and side projects.">
 <meta name="twitter:image" content="https://arisaha13.github.io/about.webp">
-<link href='https://fonts.googleapis.com/css?family=Open Sans' rel='stylesheet'>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 </head>
 
@@ -37,14 +39,14 @@
   </header>
 
 
-  <div class="tab" style="width: 100%">
-    <button class="tablinks" onclick="openSection(event, 'Photos')" id="defaultOpen">Photos</button>
-    <button class="tablinks" onclick="openSection(event, 'About')">About</button>
+  <div class="tab" role="tablist" aria-label="Site sections" style="width: 100%">
+    <button class="tablinks" id="tab-Photos" role="tab" aria-selected="true" aria-controls="Photos" tabindex="0" onclick="openSection(event, 'Photos')">Photos</button>
+    <button class="tablinks" id="tab-About" role="tab" aria-selected="false" aria-controls="About" tabindex="-1" onclick="openSection(event, 'About')">About</button>
   </div>
   <br>
   <br>
 
-  <div id="Photos" class="tabcontent">
+  <div id="Photos" class="tabcontent" role="tabpanel" aria-labelledby="tab-Photos">
     <div class="container1">
       <ul class="image-gallery">
 <!-- GALLERY_ITEMS -->
@@ -52,7 +54,7 @@
     </div>
   </div>
 
-  <div id="About" class="tabcontent">
+  <div id="About" class="tabcontent" role="tabpanel" aria-labelledby="tab-About" hidden>
     <div class="abt-columns">
       <div class="abt-column">
         <img src="about.webp" alt="Baron-san" height="500px" width="375px" loading="lazy" decoding="async">
