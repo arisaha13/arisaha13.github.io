@@ -4,6 +4,7 @@
 const fs = require("fs");
 const path = require("path");
 const sharp = require("sharp");
+const esbuild = require("esbuild");
 
 const ROOT = path.join(__dirname, "..");
 const DIST = path.join(ROOT, "dist");
@@ -68,11 +69,6 @@ async function buildStaticImages() {
     .resize({ width: 800, withoutEnlargement: true })
     .webp({ quality: 82 })
     .toFile(path.join(DIST, "about.webp"));
-
-  await sharp(path.join(ROOT, "potato-5039995_960_720.webp"))
-    .resize({ width: 300, withoutEnlargement: true })
-    .webp({ quality: 82 })
-    .toFile(path.join(DIST, "potato.webp"));
 }
 
 async function copyStaticFiles() {
@@ -80,6 +76,19 @@ async function copyStaticFiles() {
     path.join(ROOT, "Resume-Saha-Aritra.pdf"),
     path.join(DIST, "Resume-Saha-Aritra.pdf")
   );
+}
+
+async function buildAssets() {
+  await esbuild.build({
+    entryPoints: [path.join(ROOT, "styles.css")],
+    outfile: path.join(DIST, "styles.css"),
+    minify: true,
+  });
+  await esbuild.build({
+    entryPoints: [path.join(ROOT, "script.js")],
+    outfile: path.join(DIST, "script.js"),
+    minify: true,
+  });
 }
 
 async function buildHtml(galleryHtml) {
@@ -97,6 +106,7 @@ async function main() {
     buildGallery(),
     buildStaticImages(),
     copyStaticFiles(),
+    buildAssets(),
   ]);
   await buildHtml(galleryHtml);
   console.log(`Built site into ${path.relative(ROOT, DIST)}/`);
