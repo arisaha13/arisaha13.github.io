@@ -70,9 +70,11 @@ async function buildStaticImages() {
     .webp({ quality: 82 })
     .toFile(path.join(DIST, "about.webp"));
 
-  await sharp(path.join(ROOT, "IMG_1741_edited.JPG"))
-    .rotate()
-    .resize(192, 192, { fit: "cover", position: "attention" })
+  await sharp(path.join(ROOT, "potato-favicon-src.webp"))
+    .resize(192, 192, {
+      fit: "contain",
+      background: { r: 0, g: 0, b: 0, alpha: 0 },
+    })
     .png()
     .toFile(path.join(DIST, "favicon.png"));
 }
