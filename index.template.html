@@ -4,208 +4,9 @@
 <title>Aritra Saha</title>
 <link rel="icon" href="https://cdn.pixabay.com/photo/2020/04/13/20/42/potato-5039995_1280.png"/>
 <link href='https://fonts.googleapis.com/css?family=Open Sans' rel='stylesheet'>
+<link rel="stylesheet" href="styles.css">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-
-
-<style>
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-ul {
-  list-style: none;
-}
-
-.container1 {
-}
-
-/* Responsive image gallery rules begin*/
-
-.image-gallery {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 10px;
-}
-
-.image-gallery > li {
-  flex-basis: 360px; /*width: 360px;*/
-  position: relative;
-  cursor: default;
-}
-
-.image-gallery::after {
-  content: "";
-  flex-basis: 360px;
-}
-
-.image-gallery li img {
-  object-fit: cover;
-  max-width: 100%;
-  height: auto;
-  vertical-align: middle;
-}
-
-.overlay {
-  position: absolute;
-  width: 100%;
-  height: 20%;
-  background: rgba(0, 0, 0, 0.5);
-  bottom: 0;
-  left: 0;
-  transform: scale(0);
-  transition: top 0.3s, right 0.3s, bottom 0.3s, left 0.3s;
-  color: #fff;
-  /* center overlay text */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-}
-
-/* hover */
-.image-gallery li:hover .overlay {
-  transform: scale(1);
-}
-
-/* Style the body */
-body {
-  font-family: Open Sans;
-  margin: 0;
-  text-align: center;
-}
-
-/* Header/Logo Title */
-a {
-  text-decoration: none;
-  color: white;
-}
-.site-header {
-  border-bottom: 1px solid #fda172;
-  background-color: #fda172;
-  color: #fda172;
-  padding: .5em 1em;
-}
-
-.site-header::after {
-  content: "";
-  display: table;
-  clear: both;
-}
-
-.site-identity {
-  float: left;
-  color: #fda172;
-}
-
-.site-identity h1 {
-  font-size: 1.5em;
-  margin: .7em 0 .3em 0;
-  display: inline-block;
-}
-
-.site-identity img {
-  max-width: 70px;
-  float: left;
-  margin: 0 10px 0 0;
-  border-radius: 50%;
-  border-style: dashed;
-  border-color: white;
-  border-width: 3px;
-}
-
-.site-navigation {
-  float: right;
-  color: #fda172;
-}
-
-.site-navigation ul, li {
-  margin: 0;
-  padding: 0;
-  color: #fda172;
-}
-
-.site-navigation li {
-  display: inline-block;
-  margin: 1.4em 1em 1em 1em;
-  color: #fda172;
-}
-
-/* Add media queries for responsiveness - when the screen is 500px wide or less, stack the links on top of each other */
-@media screen and (max-width: 360px) {
-  .site-header a {
-    float: none;
-    display: block;
-    text-align: left;
-  }
-  .site-navigation {
-    float: none;
-  }
-}
-
-/* Button */
-.tab {
-    margin:0 auto;
-    display: flex;
-    justify-content: center;
-}
-
-.tab button {
-    font-family: Open Sans;
-    cursor: pointer;
-    border: 0px solid #fda172;
-    background-color: transparent;
-    height: 50px;
-    width: 350px;
-    color: #fda172;
-    font-size: 1.3em;
-    opacity: 0.6;
-    transition: 0.3s;
-    box-shadow: 0 6px 6px rgba(0, 0, 0, 0.1);
-}
-
-.tab button:hover {
-  opacity: 1;
-}
-
-/* Create an active/current tablink class */
-.tab button.active {
-  background-color: #f5f5f5;
-}
-
-.tabcontent {
-  animation: fadeEffect 1s; /* Fading effect takes 1 second */
-}
-
-/* Go from zero to full opacity */
-@keyframes fadeEffect {
-  from {opacity: 0;}
-  to {opacity: 1;}
-}
-
-.abt-columns {
-  width: 100%;
-}
-.abt-column {
-  width:100%;
-}
-@media (min-width: 48em) {
-  .abt-column {
-    width: 40%;
-    float:left;
-    text-align: center;
-  }
-  .abt-columns {
-    content: "";
-    display: table;
-    clear: both;
-  }
-}
-
-</style>
 </head>
 
 <body>
@@ -225,59 +26,11 @@ a {
 
 
   <div class="tab" style="width: 100%">
-    <button class="tablinks" onclick="openSection(event, 'Projects')">Projects</button>
-    <button class="tablinks" onclick="openSection(event, 'Photos')"  id="defaultOpen">Photos</button>
+    <button class="tablinks" onclick="openSection(event, 'Photos')" id="defaultOpen">Photos</button>
     <button class="tablinks" onclick="openSection(event, 'About')">About</button>
   </div>
   <br>
   <br>
-
-  <div id="Projects" class="tabcontent">
-    <style>
-    * {
-      box-sizing: border-box;
-    }
-    .column {
-      float: left;
-      width: 33.33%;
-      padding: 10px;
-    }
-
-    .row:after {
-      content: "";
-      display: table;
-      clear: both;
-    }
-
-    .column:hover::after {
-      opacity: 1;
-    }
-
-    @media screen and (max-width: 600px) {
-      .column {
-        width: 100%;
-      }
-    }
-    </style>
-
-    <div class="row">
-      <div class="column" style="background-color:#ffbf99; opacity:0.6">
-        <img src="potato.webp" alt="potato" height="200px" width="150px" loading="lazy" decoding="async">
-        <br>
-        potato
-      </div>
-      <div class="column" style="background-color:#ffbf99; opacity:0.6">
-        <img src="potato.webp" alt="potato" height="200px" width="150px" loading="lazy" decoding="async">
-        <br>
-        potato
-      </div>
-      <div class="column" style="background-color:#ffbf99; opacity:0.6">
-        <img src="potato.webp" alt="potato" height="200px" width="150px" loading="lazy" decoding="async">
-        <br>
-        potato
-      </div>
-    </div>
-  </div>
 
   <div id="Photos" class="tabcontent">
     <div class="container1">
@@ -301,23 +54,7 @@ a {
     </div>
   </div>
 
-  <script>
-function openSection(evt, sectionName) {
-  var i, tabcontent, tablinks;
-  tabcontent = document.getElementsByClassName("tabcontent");
-  for (i = 0; i < tabcontent.length; i++) {
-    tabcontent[i].style.display = "none";
-  }
-  tablinks = document.getElementsByClassName("tablinks");
-  for (i = 0; i < tablinks.length; i++) {
-    tablinks[i].className = tablinks[i].className.replace(" active", "");
-  }
-  document.getElementById(sectionName).style.display = "block";
-  evt.currentTarget.className += " active";
-}
-// Get the element with id="defaultOpen" and click on it
-document.getElementById("defaultOpen").click();
-</script>
+  <script src="script.js"></script>
 
   <br>
   <br>
