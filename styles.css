@@ -137,6 +137,7 @@ a {
     margin:0 auto;
     display: flex;
     justify-content: center;
+    width: 100%;
 }
 
 .tab button {
@@ -174,6 +175,9 @@ a {
 
 .abt-columns {
   width: 100%;
+}
+.about-text {
+  text-align: justify;
 }
 .abt-column {
   width:100%;

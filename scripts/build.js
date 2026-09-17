@@ -49,7 +49,7 @@ async function buildGallery() {
 
     const alt = altFromCaption(caption);
     items.push(`        <li>
-          <img src="Film/${outName}" alt="${alt}" loading="lazy" decoding="async" />
+          <img src="Film/${outName}" alt="${alt}" loading="lazy" decoding="async">
           <div class="overlay"><span>${caption}</span></div>
         </li>`);
   }
