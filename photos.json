@@ -1,45 +1,303 @@
 [
-  { "file": "000002.jpg", "caption": "Fujifilm Quicksnap 400 / Busan, South Korea" },
-  { "file": "000005.jpg", "caption": "Fujifilm Quicksnap 400 / Busan, South Korea" },
-  { "file": "000012.jpg", "caption": "Fujifilm Quicksnap 400 / Jeju Island, South Korea" },
-  { "file": "000025.jpg", "caption": "Fujifilm Quicksnap 400 / Seoul, South Korea" },
-  { "file": "IMG_0575.JPG", "caption": "Fujifilm Quicksnap 400 / Taipei, Taiwan" },
-  { "file": "IMG_0576.JPG", "caption": "Fujifilm Quicksnap 400 / Taipei, Taiwan" },
-  { "file": "IMG_0584.JPG", "caption": "Fujifilm Quicksnap 400 / Taroko National Park, Taiwan" },
-  { "file": "IMG_0587.JPG", "caption": "Fujifilm Quicksnap 400 / Taroko National Park, Taiwan" },
-  { "file": "IMG_0594.JPG", "caption": "Fujifilm Quicksnap 400 / Jiufen, Taiwan" },
-  { "file": "IMG_0599.JPG", "caption": "Fujifilm Quicksnap 400 / Jiufen, Taiwan" },
-  { "file": "IMG_1558.JPG", "caption": "Fujifilm Quicksnap 400 / Seoul, South Korea" },
-  { "file": "IMG_1562.JPG", "caption": "Fujifilm Quicksnap 400 / Nami Island, South Korea" },
-  { "file": "IMG_1578.JPG", "caption": "Fujifilm Quicksnap 400 / Kamakura, Japan" },
-  { "file": "IMG_1592.JPG", "caption": "Fujifilm Quicksnap 400 / Tokyo, Japan" },
-  { "file": "IMG_1598.JPG", "caption": "Fujifilm Quicksnap 400 / Tokyo, Japan" },
-  { "file": "IMG_2293.JPG", "caption": "Minolta X-7A / Fujifilm Superia X-Tra 400 / Toronto, Canada" },
-  { "file": "IMG_2296.JPG", "caption": "Minolta X-7A / Fujifilm Superia X-Tra 400 / Toronto, Canada" },
-  { "file": "IMG_2297.JPG", "caption": "Minolta X-7A / Fujifilm Superia X-Tra 400 / Toronto, Canada" },
-  { "file": "IMG_2301.JPG", "caption": "Minolta X-7A / Fujifilm Superia X-Tra 400 / Toronto, Canada" },
-  { "file": "IMG_2303.JPG", "caption": "Minolta X-7A / Fujifilm Superia X-Tra 400 / Montreal, Canada" },
-  { "file": "IMG_2304.JPG", "caption": "Minolta X-7A / Fujifilm Superia X-Tra 400 / Montreal, Canada" },
-  { "file": "IMG_2305.JPG", "caption": "Minolta X-7A / Fujifilm Superia X-Tra 400 / Montreal, Canada" },
-  { "file": "IMG_2306.JPG", "caption": "Minolta X-7A / Fujifilm Superia X-Tra 400 / Montreal, Canada" },
-  { "file": "IMG_2308.JPG", "caption": "Minolta X-7A / Fujifilm Superia X-Tra 400 / Vancouver, Canada" },
-  { "file": "IMG_2310.JPG", "caption": "Minolta X-7A / Fujifilm Superia X-Tra 400 / Vancouver, Canada" },
-  { "file": "IMG_2315.JPG", "caption": "Minolta X-7A / Fujifilm Superia X-Tra 400 / Vancouver, Canada" },
-  { "file": "IMG_2318.JPG", "caption": "Minolta X-7A / Fujifilm Superia X-Tra 400 / Vancouver, Canada" },
-  { "file": "IMG_4033.JPG", "caption": "Minolta X-7A / Fujifilm Superia X-Tra 200 / Vancouver, Canada" },
-  { "file": "IMG_4039.JPG", "caption": "Minolta X-7A / Fujifilm Superia X-Tra 200 / Vancouver, Canada" },
-  { "file": "IMG_4044.JPG", "caption": "Minolta X-7A / Fujifilm Superia X-Tra 200 / Whistler, Canada" },
-  { "file": "IMG_4045.JPG", "caption": "Minolta X-7A / Fujifilm Superia X-Tra 200 / Vancouver, Canada" },
-  { "file": "IMG_4053.JPG", "caption": "Minolta X-7A / Fujifilm Superia X-Tra 200 / Vancouver, Canada" },
-  { "file": "IMG_4055.JPG", "caption": "Minolta X-7A / Fujifilm Superia X-Tra 400 / Whistler, Canada" },
-  { "file": "IMG_4079.JPG", "caption": "Minolta X-7A / Fujifilm Superia X-Tra 400 / Vancouver, Canada" },
-  { "file": "IMG_4314.JPG", "caption": "Minolta X-7A / Fujifilm Superia X-Tra 200 / Innisfil, Canada" },
-  { "file": "IMG_4316.JPG", "caption": "Minolta X-7A / Fujifilm Superia X-Tra 200 / Innisfil, Canada" },
-  { "file": "IMG_4331.JPG", "caption": "Minolta X-7A / Fujifilm Superia X-Tra 200 / Ottawa, Canada" },
-  { "file": "IMG_4333.JPG", "caption": "Minolta X-7A / Fujifilm Superia X-Tra 200 / Innisfil, Canada" },
-  { "file": "IMG_4339.JPG", "caption": "Minolta X-7A / Fujifilm Superia X-Tra 200 / Innisfil, Canada" },
-  { "file": "IMG_4781.JPG", "caption": "Minolta X-7A / Fujifilm Superia X-Tra 200 / Toronto, Canada" },
-  { "file": "IMG_4803.JPG", "caption": "Minolta X-7A / Fujifilm Superia X-Tra 200 / Toronto, Canada" },
-  { "file": "IMG_5758.JPG", "caption": "Minolta X-7A / Lomography Colour Negative 800 / Karlovy Vary, Czechia" },
-  { "file": "IMG_6584.JPG", "caption": "Minolta X-7A / Fujifilm Superia X-Tra 400 / London, England" }
+  {
+    "file": "000002.jpg",
+    "camera": "Fujifilm Quicksnap 400",
+    "film": null,
+    "location": "Busan",
+    "country": "South Korea"
+  },
+  {
+    "file": "000005.jpg",
+    "camera": "Fujifilm Quicksnap 400",
+    "film": null,
+    "location": "Busan",
+    "country": "South Korea"
+  },
+  {
+    "file": "000012.jpg",
+    "camera": "Fujifilm Quicksnap 400",
+    "film": null,
+    "location": "Jeju Island",
+    "country": "South Korea"
+  },
+  {
+    "file": "000025.jpg",
+    "camera": "Fujifilm Quicksnap 400",
+    "film": null,
+    "location": "Seoul",
+    "country": "South Korea"
+  },
+  {
+    "file": "IMG_0575.JPG",
+    "camera": "Fujifilm Quicksnap 400",
+    "film": null,
+    "location": "Taipei",
+    "country": "Taiwan"
+  },
+  {
+    "file": "IMG_0576.JPG",
+    "camera": "Fujifilm Quicksnap 400",
+    "film": null,
+    "location": "Taipei",
+    "country": "Taiwan"
+  },
+  {
+    "file": "IMG_0584.JPG",
+    "camera": "Fujifilm Quicksnap 400",
+    "film": null,
+    "location": "Taroko National Park",
+    "country": "Taiwan"
+  },
+  {
+    "file": "IMG_0587.JPG",
+    "camera": "Fujifilm Quicksnap 400",
+    "film": null,
+    "location": "Taroko National Park",
+    "country": "Taiwan"
+  },
+  {
+    "file": "IMG_0594.JPG",
+    "camera": "Fujifilm Quicksnap 400",
+    "film": null,
+    "location": "Jiufen",
+    "country": "Taiwan"
+  },
+  {
+    "file": "IMG_0599.JPG",
+    "camera": "Fujifilm Quicksnap 400",
+    "film": null,
+    "location": "Jiufen",
+    "country": "Taiwan"
+  },
+  {
+    "file": "IMG_1558.JPG",
+    "camera": "Fujifilm Quicksnap 400",
+    "film": null,
+    "location": "Seoul",
+    "country": "South Korea"
+  },
+  {
+    "file": "IMG_1562.JPG",
+    "camera": "Fujifilm Quicksnap 400",
+    "film": null,
+    "location": "Nami Island",
+    "country": "South Korea"
+  },
+  {
+    "file": "IMG_1578.JPG",
+    "camera": "Fujifilm Quicksnap 400",
+    "film": null,
+    "location": "Kamakura",
+    "country": "Japan"
+  },
+  {
+    "file": "IMG_1592.JPG",
+    "camera": "Fujifilm Quicksnap 400",
+    "film": null,
+    "location": "Tokyo",
+    "country": "Japan"
+  },
+  {
+    "file": "IMG_1598.JPG",
+    "camera": "Fujifilm Quicksnap 400",
+    "film": null,
+    "location": "Tokyo",
+    "country": "Japan"
+  },
+  {
+    "file": "IMG_2293.JPG",
+    "camera": "Minolta X-7A",
+    "film": "Fujifilm Superia X-Tra 400",
+    "location": "Toronto",
+    "country": "Canada"
+  },
+  {
+    "file": "IMG_2296.JPG",
+    "camera": "Minolta X-7A",
+    "film": "Fujifilm Superia X-Tra 400",
+    "location": "Toronto",
+    "country": "Canada"
+  },
+  {
+    "file": "IMG_2297.JPG",
+    "camera": "Minolta X-7A",
+    "film": "Fujifilm Superia X-Tra 400",
+    "location": "Toronto",
+    "country": "Canada"
+  },
+  {
+    "file": "IMG_2301.JPG",
+    "camera": "Minolta X-7A",
+    "film": "Fujifilm Superia X-Tra 400",
+    "location": "Toronto",
+    "country": "Canada"
+  },
+  {
+    "file": "IMG_2303.JPG",
+    "camera": "Minolta X-7A",
+    "film": "Fujifilm Superia X-Tra 400",
+    "location": "Montreal",
+    "country": "Canada"
+  },
+  {
+    "file": "IMG_2304.JPG",
+    "camera": "Minolta X-7A",
+    "film": "Fujifilm Superia X-Tra 400",
+    "location": "Montreal",
+    "country": "Canada"
+  },
+  {
+    "file": "IMG_2305.JPG",
+    "camera": "Minolta X-7A",
+    "film": "Fujifilm Superia X-Tra 400",
+    "location": "Montreal",
+    "country": "Canada"
+  },
+  {
+    "file": "IMG_2306.JPG",
+    "camera": "Minolta X-7A",
+    "film": "Fujifilm Superia X-Tra 400",
+    "location": "Montreal",
+    "country": "Canada"
+  },
+  {
+    "file": "IMG_2308.JPG",
+    "camera": "Minolta X-7A",
+    "film": "Fujifilm Superia X-Tra 400",
+    "location": "Vancouver",
+    "country": "Canada"
+  },
+  {
+    "file": "IMG_2310.JPG",
+    "camera": "Minolta X-7A",
+    "film": "Fujifilm Superia X-Tra 400",
+    "location": "Vancouver",
+    "country": "Canada"
+  },
+  {
+    "file": "IMG_2315.JPG",
+    "camera": "Minolta X-7A",
+    "film": "Fujifilm Superia X-Tra 400",
+    "location": "Vancouver",
+    "country": "Canada"
+  },
+  {
+    "file": "IMG_2318.JPG",
+    "camera": "Minolta X-7A",
+    "film": "Fujifilm Superia X-Tra 400",
+    "location": "Vancouver",
+    "country": "Canada"
+  },
+  {
+    "file": "IMG_4033.JPG",
+    "camera": "Minolta X-7A",
+    "film": "Fujifilm Superia X-Tra 200",
+    "location": "Vancouver",
+    "country": "Canada"
+  },
+  {
+    "file": "IMG_4039.JPG",
+    "camera": "Minolta X-7A",
+    "film": "Fujifilm Superia X-Tra 200",
+    "location": "Vancouver",
+    "country": "Canada"
+  },
+  {
+    "file": "IMG_4044.JPG",
+    "camera": "Minolta X-7A",
+    "film": "Fujifilm Superia X-Tra 200",
+    "location": "Whistler",
+    "country": "Canada"
+  },
+  {
+    "file": "IMG_4045.JPG",
+    "camera": "Minolta X-7A",
+    "film": "Fujifilm Superia X-Tra 200",
+    "location": "Vancouver",
+    "country": "Canada"
+  },
+  {
+    "file": "IMG_4053.JPG",
+    "camera": "Minolta X-7A",
+    "film": "Fujifilm Superia X-Tra 200",
+    "location": "Vancouver",
+    "country": "Canada"
+  },
+  {
+    "file": "IMG_4055.JPG",
+    "camera": "Minolta X-7A",
+    "film": "Fujifilm Superia X-Tra 400",
+    "location": "Whistler",
+    "country": "Canada"
+  },
+  {
+    "file": "IMG_4079.JPG",
+    "camera": "Minolta X-7A",
+    "film": "Fujifilm Superia X-Tra 400",
+    "location": "Vancouver",
+    "country": "Canada"
+  },
+  {
+    "file": "IMG_4314.JPG",
+    "camera": "Minolta X-7A",
+    "film": "Fujifilm Superia X-Tra 200",
+    "location": "Innisfil",
+    "country": "Canada"
+  },
+  {
+    "file": "IMG_4316.JPG",
+    "camera": "Minolta X-7A",
+    "film": "Fujifilm Superia X-Tra 200",
+    "location": "Innisfil",
+    "country": "Canada"
+  },
+  {
+    "file": "IMG_4331.JPG",
+    "camera": "Minolta X-7A",
+    "film": "Fujifilm Superia X-Tra 200",
+    "location": "Ottawa",
+    "country": "Canada"
+  },
+  {
+    "file": "IMG_4333.JPG",
+    "camera": "Minolta X-7A",
+    "film": "Fujifilm Superia X-Tra 200",
+    "location": "Innisfil",
+    "country": "Canada"
+  },
+  {
+    "file": "IMG_4339.JPG",
+    "camera": "Minolta X-7A",
+    "film": "Fujifilm Superia X-Tra 200",
+    "location": "Innisfil",
+    "country": "Canada"
+  },
+  {
+    "file": "IMG_4781.JPG",
+    "camera": "Minolta X-7A",
+    "film": "Fujifilm Superia X-Tra 200",
+    "location": "Toronto",
+    "country": "Canada"
+  },
+  {
+    "file": "IMG_4803.JPG",
+    "camera": "Minolta X-7A",
+    "film": "Fujifilm Superia X-Tra 200",
+    "location": "Toronto",
+    "country": "Canada"
+  },
+  {
+    "file": "IMG_5758.JPG",
+    "camera": "Minolta X-7A",
+    "film": "Lomography Colour Negative 800",
+    "location": "Karlovy Vary",
+    "country": "Czechia"
+  },
+  {
+    "file": "IMG_6584.JPG",
+    "camera": "Minolta X-7A",
+    "film": "Fujifilm Superia X-Tra 400",
+    "location": "London",
+    "country": "England"
+  }
 ]
