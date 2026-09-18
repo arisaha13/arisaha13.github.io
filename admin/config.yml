@@ -1,0 +1,34 @@
+backend:
+  name: github
+  repo: arisaha13/arisaha13.github.io
+  branch: main
+  # Replace with your deployed worker's URL — see cloudflare-worker/README.md.
+  base_url: https://REPLACE-WITH-YOUR-WORKER-URL.workers.dev
+  auth_endpoint: auth
+
+media_folder: "Film"
+public_folder: "Film"
+
+collections:
+  - name: "photos"
+    label: "Photo Gallery"
+    files:
+      - name: "gallery"
+        label: "Photos"
+        file: "photos.json"
+        fields:
+          - name: "photos"
+            label: "Photos"
+            widget: "list"
+            summary: "{{fields.location}}, {{fields.country}}"
+            fields:
+              - { name: "file", label: "Photo", widget: "image" }
+              - { name: "camera", label: "Camera", widget: "string" }
+              - {
+                  name: "film",
+                  label: "Film stock (leave blank for fixed-film cameras like a disposable)",
+                  widget: "string",
+                  required: false,
+                }
+              - { name: "location", label: "Location", widget: "string" }
+              - { name: "country", label: "Country", widget: "string" }

@@ -15,12 +15,26 @@ Nothing in `dist/` is committed — it's a build artifact, regenerated on every 
 
 ## Adding a photo
 
+**Via the CMS (recommended):** visit `/admin/` on the live site, log in with
+GitHub, and drag a photo in through the editor. See
+`cloudflare-worker/README.md` for one-time setup (a GitHub OAuth App + a
+small Cloudflare Worker — everything else about the site stays static).
+
+**Manually:**
+
 1. Drop the file into `Film/`
 2. Add one entry to `photos.json`:
    ```json
-   { "file": "IMG_1234.JPG", "caption": "Camera/film / Location" }
+   {
+     "file": "Film/IMG_1234.JPG",
+     "camera": "Minolta X-7A",
+     "film": "Fujifilm Superia X-Tra 400",
+     "location": "Toronto",
+     "country": "Canada"
+   }
    ```
-3. Push — the build picks it up automatically.
+   (`film` can be omitted/`null` for fixed-film cameras like a disposable.)
+3. Push — the build picks it up automatically, including the Country/Camera/Film gallery filters.
 
 ## Local development
 

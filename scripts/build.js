@@ -8,7 +8,6 @@ const esbuild = require("esbuild");
 
 const ROOT = path.join(__dirname, "..");
 const DIST = path.join(ROOT, "dist");
-const FILM_SRC = path.join(ROOT, "Film");
 const FILM_OUT = path.join(DIST, "Film");
 
 const GALLERY_MAX_WIDTH = 1600;
@@ -76,7 +75,7 @@ async function buildGallery() {
   const items = [];
   for (const photo of manifest) {
     const { file, camera, film, location, country } = photo;
-    const srcPath = path.join(FILM_SRC, file);
+    const srcPath = path.join(ROOT, file);
     const outName = path.parse(file).name + ".webp";
     const outPath = path.join(FILM_OUT, outName);
 
@@ -122,6 +121,9 @@ async function copyStaticFiles() {
     path.join(ROOT, "Resume-Saha-Aritra.pdf"),
     path.join(DIST, "Resume-Saha-Aritra.pdf")
   );
+  await fs.promises.cp(path.join(ROOT, "admin"), path.join(DIST, "admin"), {
+    recursive: true,
+  });
 }
 
 async function buildAssets() {
