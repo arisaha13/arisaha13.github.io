@@ -43,3 +43,38 @@ document.querySelectorAll('[role="tab"]').forEach(function (tab) {
 });
 
 document.getElementById("tab-Photos").click();
+
+function applyFilters() {
+  var selects = document.querySelectorAll(".filter select");
+  var activeFilters = Array.prototype.map.call(selects, function (select) {
+    return { key: select.dataset.filterKey, value: select.value };
+  });
+
+  var items = document.querySelectorAll(".image-gallery > li");
+  var visibleCount = 0;
+  items.forEach(function (item) {
+    var matches = activeFilters.every(function (filter) {
+      return filter.value === "" || item.dataset[filter.key] === filter.value;
+    });
+    if (matches) {
+      item.removeAttribute("hidden");
+      visibleCount++;
+    } else {
+      item.setAttribute("hidden", "");
+    }
+  });
+
+  var status = document.getElementById("filter-status");
+  if (status) {
+    status.textContent =
+      visibleCount === items.length
+        ? "Showing all " + items.length + " photos"
+        : "Showing " + visibleCount + " of " + items.length + " photos";
+  }
+}
+
+document.querySelectorAll(".filter select").forEach(function (select) {
+  select.addEventListener("change", applyFilters);
+});
+
+applyFilters();

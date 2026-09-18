@@ -19,9 +19,17 @@ async function emptyDir(dir) {
   await fs.promises.mkdir(dir, { recursive: true });
 }
 
-function altFromCaption(caption) {
-  // Captions are "<camera/film> / <location>"; use the location as alt text.
-  return caption.split("/").pop().trim();
+function escapeHtml(str) {
+  return str
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;");
+}
+
+function captionFor({ camera, film, location, country }) {
+  const parts = film ? [camera, film] : [camera];
+  return `${parts.join(" / ")} / ${location}, ${country}`;
 }
 
 async function resizeToWebp(srcPath, destPath, maxWidth, quality) {
@@ -32,6 +40,32 @@ async function resizeToWebp(srcPath, destPath, maxWidth, quality) {
     .toFile(destPath);
 }
 
+function buildFilterOptions(manifest, key) {
+  const values = [...new Set(manifest.map((p) => p[key]).filter(Boolean))].sort();
+  return values
+    .map((v) => `<option value="${escapeHtml(v)}">${escapeHtml(v)}</option>`)
+    .join("\n            ");
+}
+
+function buildFilterBar(manifest) {
+  const facets = [
+    ["country", "Country"],
+    ["camera", "Camera"],
+    ["film", "Film"],
+  ];
+  return facets
+    .map(
+      ([key, label]) => `      <div class="filter">
+        <label for="filter-${key}">${label}</label>
+        <select id="filter-${key}" data-filter-key="${key}">
+          <option value="">All</option>
+          ${buildFilterOptions(manifest, key)}
+        </select>
+      </div>`
+    )
+    .join("\n");
+}
+
 async function buildGallery() {
   const manifest = JSON.parse(
     await fs.promises.readFile(path.join(ROOT, "photos.json"), "utf8")
@@ -40,21 +74,23 @@ async function buildGallery() {
   await fs.promises.mkdir(FILM_OUT, { recursive: true });
 
   const items = [];
-  for (const { file, caption } of manifest) {
+  for (const photo of manifest) {
+    const { file, camera, film, location, country } = photo;
     const srcPath = path.join(FILM_SRC, file);
     const outName = path.parse(file).name + ".webp";
     const outPath = path.join(FILM_OUT, outName);
 
     await resizeToWebp(srcPath, outPath, GALLERY_MAX_WIDTH, GALLERY_QUALITY);
 
-    const alt = altFromCaption(caption);
-    items.push(`        <li>
-          <img src="Film/${outName}" alt="${alt}" loading="lazy" decoding="async">
-          <div class="overlay"><span>${caption}</span></div>
+    const caption = captionFor(photo);
+    const alt = `${location}, ${country}`;
+    items.push(`        <li data-country="${escapeHtml(country)}" data-camera="${escapeHtml(camera)}" data-film="${escapeHtml(film || "")}">
+          <img src="Film/${outName}" alt="${escapeHtml(alt)}" loading="lazy" decoding="async">
+          <div class="overlay"><span>${escapeHtml(caption)}</span></div>
         </li>`);
   }
 
-  return items.join("\n");
+  return { galleryHtml: items.join("\n"), filterBarHtml: buildFilterBar(manifest) };
 }
 
 async function buildStaticImages() {
@@ -99,24 +135,26 @@ async function buildAssets() {
   });
 }
 
-async function buildHtml(galleryHtml) {
+async function buildHtml(galleryHtml, filterBarHtml) {
   const template = await fs.promises.readFile(
     path.join(ROOT, "index.template.html"),
     "utf8"
   );
-  const html = template.replace("<!-- GALLERY_ITEMS -->", galleryHtml);
+  const html = template
+    .replace("<!-- FILTER_BAR -->", filterBarHtml)
+    .replace("<!-- GALLERY_ITEMS -->", galleryHtml);
   await fs.promises.writeFile(path.join(DIST, "index.html"), html);
 }
 
 async function main() {
   await emptyDir(DIST);
-  const [galleryHtml] = await Promise.all([
+  const [gallery] = await Promise.all([
     buildGallery(),
     buildStaticImages(),
     copyStaticFiles(),
     buildAssets(),
   ]);
-  await buildHtml(galleryHtml);
+  await buildHtml(gallery.galleryHtml, gallery.filterBarHtml);
   console.log(`Built site into ${path.relative(ROOT, DIST)}/`);
 }
 
