@@ -85,7 +85,9 @@ async function buildGallery() {
     const caption = captionFor(photo);
     const alt = `${location}, ${country}`;
     items.push(`        <li data-country="${escapeHtml(country)}" data-camera="${escapeHtml(camera)}" data-film="${escapeHtml(film || "")}">
-          <img src="Film/${outName}" alt="${escapeHtml(alt)}" loading="lazy" decoding="async">
+          <button type="button" class="gallery-item" aria-label="View photo: ${escapeHtml(caption)}">
+            <img src="Film/${outName}" alt="${escapeHtml(alt)}" loading="lazy" decoding="async">
+          </button>
           <div class="overlay"><span>${escapeHtml(caption)}</span></div>
         </li>`);
   }

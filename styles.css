@@ -57,6 +57,17 @@ ul {
   display: none;
 }
 
+.gallery-item {
+  display: block;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  font: inherit;
+}
+
 .image-gallery > li {
   flex-basis: 360px; /*width: 360px;*/
   position: relative;
@@ -233,4 +244,74 @@ a {
     display: table;
     clear: both;
   }
+}
+
+/* Lightbox / carousel */
+body.lightbox-open {
+  overflow: hidden;
+}
+
+.lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.92);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.lightbox[hidden] {
+  display: none;
+}
+
+.lightbox img {
+  max-width: 85vw;
+  max-height: 80vh;
+  object-fit: contain;
+}
+
+.lightbox-caption {
+  position: absolute;
+  bottom: 2em;
+  left: 1em;
+  right: 1em;
+  text-align: center;
+  color: #fff;
+}
+
+.lightbox-close,
+.lightbox-prev,
+.lightbox-next {
+  position: absolute;
+  background: transparent;
+  border: 0;
+  color: #fff;
+  font-size: 2.5em;
+  line-height: 1;
+  cursor: pointer;
+  padding: 0.2em 0.5em;
+}
+
+.lightbox-close {
+  top: 0.5em;
+  right: 0.5em;
+}
+
+.lightbox-prev {
+  left: 0.5em;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.lightbox-next {
+  right: 0.5em;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.lightbox-close:hover,
+.lightbox-prev:hover,
+.lightbox-next:hover {
+  opacity: 0.7;
 }
