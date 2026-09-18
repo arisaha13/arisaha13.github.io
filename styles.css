@@ -99,7 +99,7 @@ ul {
 
 /* Style the body */
 body {
-  font-family: Open Sans;
+  font-family: "Open Sans", sans-serif;
   margin: 0;
   text-align: center;
 }
@@ -181,7 +181,7 @@ a {
 }
 
 .tab button {
-    font-family: Open Sans;
+    font-family: "Open Sans", sans-serif;
     cursor: pointer;
     border: 0px solid #fda172;
     background-color: transparent;
