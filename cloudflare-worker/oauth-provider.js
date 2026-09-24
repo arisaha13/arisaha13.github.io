@@ -129,6 +129,17 @@ async function handleCallback(url, request, env) {
   );
 }
 
+function handleDebug(env) {
+  // Reveals presence only, never values — safe to leave public.
+  return new Response(
+    JSON.stringify({
+      GITHUB_CLIENT_ID: Boolean(env.GITHUB_CLIENT_ID),
+      GITHUB_CLIENT_SECRET: Boolean(env.GITHUB_CLIENT_SECRET),
+    }),
+    { headers: { "Content-Type": "application/json", "Cache-Control": "no-store" } }
+  );
+}
+
 export default {
   async fetch(request, env) {
     const url = new URL(request.url);
@@ -138,6 +149,9 @@ export default {
     }
     if (url.pathname === "/callback") {
       return handleCallback(url, request, env);
+    }
+    if (url.pathname === "/debug") {
+      return handleDebug(env);
     }
     return new Response("Not found", { status: 404 });
   },
