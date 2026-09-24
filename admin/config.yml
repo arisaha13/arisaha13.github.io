@@ -3,7 +3,7 @@ backend:
   repo: arisaha13/arisaha13.github.io
   branch: main
   # Replace with your deployed worker's URL — see cloudflare-worker/README.md.
-  base_url: https://REPLACE-WITH-YOUR-WORKER-URL.workers.dev
+  base_url: https://arisaha13-cms-oauth.arisaha13.workers.dev
   auth_endpoint: auth
 
 media_folder: "Film"
