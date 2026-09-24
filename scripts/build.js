@@ -66,7 +66,7 @@ function buildFilterBar(manifest) {
 }
 
 async function buildGallery() {
-  const manifest = JSON.parse(
+  const { photos: manifest } = JSON.parse(
     await fs.promises.readFile(path.join(ROOT, "photos.json"), "utf8")
   );
 
