@@ -18,11 +18,22 @@ function randomState() {
 function htmlResponse(body, status = 200, extraHeaders = {}) {
   return new Response(body, {
     status,
-    headers: { "Content-Type": "text/html; charset=utf-8", ...extraHeaders },
+    headers: {
+      "Content-Type": "text/html; charset=utf-8",
+      "Cache-Control": "no-store",
+      ...extraHeaders,
+    },
   });
 }
 
 function handleAuth(url, env) {
+  if (!env.GITHUB_CLIENT_ID) {
+    return htmlResponse(
+      "Server misconfigured: GITHUB_CLIENT_ID secret is not set on this worker.",
+      500
+    );
+  }
+
   const state = randomState();
   const redirectUri = new URL("/callback", url).toString();
   const authorizeUrl = new URL("https://github.com/login/oauth/authorize");
@@ -36,6 +47,7 @@ function handleAuth(url, env) {
     headers: {
       Location: authorizeUrl.toString(),
       "Set-Cookie": `${COOKIE_NAME}=${state}; HttpOnly; Secure; SameSite=Lax; Max-Age=600; Path=/`,
+      "Cache-Control": "no-store",
     },
   });
 }
@@ -61,6 +73,10 @@ function errorPage(message) {
 }
 
 async function handleCallback(url, request, env) {
+  if (!env.GITHUB_CLIENT_ID || !env.GITHUB_CLIENT_SECRET) {
+    return errorPage("server misconfigured: OAuth secrets are not set on this worker");
+  }
+
   const code = url.searchParams.get("code");
   const state = url.searchParams.get("state");
   const cookieState = getCookie(request, COOKIE_NAME);
