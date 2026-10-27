@@ -110,8 +110,12 @@ async function buildGallery() {
 
   await fs.promises.mkdir(FILM_OUT, { recursive: true });
 
+  // New photos are appended to the end of photos.json (both by the CMS and
+  // by convention for manual edits), so reversing gives most-recent-first.
+  const galleryOrder = manifest.slice().reverse();
+
   const items = [];
-  for (const photo of manifest) {
+  for (const photo of galleryOrder) {
     const { file, camera, film, location, country } = photo;
     const srcPath = path.join(ROOT, file);
     const outName = path.parse(file).name + ".webp";
