@@ -1,5 +1,6 @@
 function activateTab(btn) {
   closeLightbox();
+  closeMapModal();
   var tabcontent = document.getElementsByClassName("tabcontent");
   for (var i = 0; i < tabcontent.length; i++) {
     tabcontent[i].style.display = "none";
@@ -50,6 +51,7 @@ document.getElementById("tab-Photos").click();
 
 function applyFilters() {
   closeLightbox();
+  closeMapModal();
   var selects = document.querySelectorAll(".filter select");
   var activeFilters = Array.prototype.map.call(selects, function (select) {
     return { key: select.dataset.filterKey, value: select.value };
@@ -180,10 +182,71 @@ lightbox.addEventListener("click", function (evt) {
   if (evt.target === lightbox) closeLightbox();
 });
 
+var mapModal = document.getElementById("map-modal");
+var mapOpenBtn = document.getElementById("map-open");
+var mapCloseBtn = document.querySelector(".map-modal-close");
+var mapTriggerEl = null;
+
+function openMapModal() {
+  if (!mapModal) return;
+  mapTriggerEl = document.activeElement;
+  mapModal.removeAttribute("hidden");
+  document.body.classList.add("lightbox-open");
+  mapCloseBtn.focus();
+  document.addEventListener("keydown", handleMapModalKeydown);
+}
+
+function closeMapModal() {
+  if (!mapModal || mapModal.hasAttribute("hidden")) return;
+  mapModal.setAttribute("hidden", "");
+  document.body.classList.remove("lightbox-open");
+  document.removeEventListener("keydown", handleMapModalKeydown);
+  if (mapTriggerEl) {
+    mapTriggerEl.focus();
+  }
+}
+
+function handleMapModalKeydown(evt) {
+  if (evt.key === "Escape") {
+    evt.preventDefault();
+    closeMapModal();
+    return;
+  }
+  if (evt.key !== "Tab") return;
+
+  var focusable = [mapCloseBtn].concat(
+    Array.prototype.slice.call(document.querySelectorAll(".map-pin"))
+  );
+  var currentIndex = focusable.indexOf(document.activeElement);
+  var nextIndex;
+  if (evt.shiftKey) {
+    nextIndex = currentIndex <= 0 ? focusable.length - 1 : currentIndex - 1;
+  } else {
+    nextIndex =
+      currentIndex === -1 || currentIndex === focusable.length - 1
+        ? 0
+        : currentIndex + 1;
+  }
+  evt.preventDefault();
+  focusable[nextIndex].focus();
+}
+
+if (mapOpenBtn) {
+  mapOpenBtn.addEventListener("click", openMapModal);
+}
+if (mapCloseBtn) {
+  mapCloseBtn.addEventListener("click", closeMapModal);
+}
+if (mapModal) {
+  mapModal.addEventListener("click", function (evt) {
+    if (evt.target === mapModal) closeMapModal();
+  });
+}
+
 document.querySelectorAll(".map-pin").forEach(function (pin) {
   pin.addEventListener("click", function () {
     var countrySelect = document.getElementById("filter-country");
-    activateTab(document.getElementById("tab-Photos"));
+    closeMapModal();
     if (countrySelect) {
       countrySelect.value = pin.dataset.filterCountry;
       countrySelect.dispatchEvent(new Event("change"));

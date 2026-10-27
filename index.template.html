@@ -43,7 +43,6 @@
 
   <div class="tab" role="tablist" aria-label="Site sections">
     <button type="button" class="tablinks" id="tab-Photos" role="tab" aria-selected="true" aria-controls="Photos" tabindex="0" onclick="openSection(event)">Photos</button>
-    <button type="button" class="tablinks" id="tab-Map" role="tab" aria-selected="false" aria-controls="Map" tabindex="-1" onclick="openSection(event)">Map</button>
     <button type="button" class="tablinks" id="tab-About" role="tab" aria-selected="false" aria-controls="About" tabindex="-1" onclick="openSection(event)">About</button>
   </div>
   <br>
@@ -52,6 +51,9 @@
   <div id="Photos" class="tabcontent" role="tabpanel" aria-labelledby="tab-Photos">
     <div class="filters">
 <!-- FILTER_BAR -->
+      <button type="button" id="map-open" class="map-open-btn" aria-label="View photo map" aria-haspopup="dialog">
+        <span aria-hidden="true">🗺️</span> Map
+      </button>
     </div>
     <p id="filter-status" class="filter-status" aria-live="polite"></p>
     <div class="container1">
@@ -59,14 +61,6 @@
 <!-- GALLERY_ITEMS -->
       </ul>
     </div>
-  </div>
-
-  <div id="Map" class="tabcontent" role="tabpanel" aria-labelledby="tab-Map" hidden>
-    <div class="map-wrap">
-      <img class="map-image" src="map/world-map.svg" alt="World map" width="2000" height="857">
-<!-- MAP_PINS -->
-    </div>
-    <p class="map-hint">Click a pin to see photos from there.</p>
   </div>
 
   <div id="About" class="tabcontent" role="tabpanel" aria-labelledby="tab-About" hidden>
@@ -80,6 +74,17 @@
           more of those over here. To that effect, I hope to make this a playground for me to try out different ideas and hobbies in order to bring as many of those to
           life, no matter the shape they take. </p>
       </div>
+    </div>
+  </div>
+
+  <div id="map-modal" class="map-modal" role="dialog" aria-modal="true" aria-label="Photo map" hidden>
+    <div class="map-modal-inner">
+      <button type="button" class="map-modal-close" aria-label="Close map">&times;</button>
+      <div class="map-wrap">
+        <img class="map-image" src="map/world-map.svg" alt="World map" width="2000" height="857">
+<!-- MAP_PINS -->
+      </div>
+      <p class="map-hint">Click a pin to see photos from there.</p>
     </div>
   </div>
 

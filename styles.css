@@ -92,25 +92,6 @@ ul {
   overflow: hidden;
 }
 
-/* Film grain + vignette, layered on every thumbnail via a noise texture
-   blended over an inset shadow. Pure CSS, no image asset needed. */
-.gallery-item::after,
-.lightbox::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-  background-size: 140px 140px;
-  opacity: 0.07;
-  mix-blend-mode: overlay;
-  box-shadow: inset 0 0 3em rgba(0, 0, 0, 0.35);
-}
-
-.lightbox::after {
-  box-shadow: none;
-  opacity: 0.045;
-}
 
 .roll-tag {
   position: absolute;
@@ -311,13 +292,66 @@ a {
 }
 
 /* Map */
+.map-open-btn {
+  font-family: "Open Sans", sans-serif;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+  align-self: flex-end;
+  padding: 0.5em 0.9em;
+  border: 1px solid var(--color-border);
+  border-radius: 4px;
+  background: var(--color-card-bg);
+  color: var(--color-text);
+  cursor: pointer;
+  font-size: 0.95em;
+}
+
+.map-open-btn:hover {
+  background: var(--color-surface);
+}
+
+.map-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 1em;
+}
+
+.map-modal[hidden] {
+  display: none;
+}
+
+.map-modal-inner {
+  position: relative;
+  width: 100%;
+  max-width: 1100px;
+  max-height: 90vh;
+  overflow: auto;
+  background: var(--color-card-bg);
+  border-radius: 8px;
+  padding: 2.5em 1.5em 1.5em;
+}
+
+.map-modal-close {
+  position: absolute;
+  top: 0.3em;
+  right: 0.5em;
+  background: transparent;
+  border: 0;
+  color: var(--color-text);
+  font-size: 2em;
+  line-height: 1;
+  cursor: pointer;
+  padding: 0.2em 0.4em;
+}
+
 .map-wrap {
   position: relative;
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 1em;
-  background: var(--color-surface);
-  border-radius: 8px;
 }
 
 .map-image {
