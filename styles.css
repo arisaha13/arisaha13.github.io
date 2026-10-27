@@ -26,6 +26,13 @@
   box-sizing: border-box;
 }
 
+html {
+  /* Always reserve the scrollbar's width, even on short pages (e.g. the
+     About tab), so switching tabs doesn't shift the whole layout
+     sideways when the scrollbar appears/disappears. */
+  overflow-y: scroll;
+}
+
 ul {
   list-style: none;
 }
