@@ -1,4 +1,4 @@
-function openSection(evt, sectionName) {
+function activateTab(btn) {
   closeLightbox();
   var tabcontent = document.getElementsByClassName("tabcontent");
   for (var i = 0; i < tabcontent.length; i++) {
@@ -11,13 +11,16 @@ function openSection(evt, sectionName) {
     tablinks[i].setAttribute("aria-selected", "false");
     tablinks[i].setAttribute("tabindex", "-1");
   }
-  var panel = document.getElementById(sectionName);
+  var panel = document.getElementById(btn.getAttribute("aria-controls"));
   panel.style.display = "block";
   panel.removeAttribute("hidden");
-  var btn = evt.currentTarget;
   btn.className += " active";
   btn.setAttribute("aria-selected", "true");
   btn.setAttribute("tabindex", "0");
+}
+
+function openSection(evt) {
+  activateTab(evt.currentTarget);
 }
 
 function handleTabKeydown(evt) {
@@ -175,6 +178,17 @@ lightboxNextBtn.addEventListener("click", function () {
 });
 lightbox.addEventListener("click", function (evt) {
   if (evt.target === lightbox) closeLightbox();
+});
+
+document.querySelectorAll(".map-pin").forEach(function (pin) {
+  pin.addEventListener("click", function () {
+    var countrySelect = document.getElementById("filter-country");
+    activateTab(document.getElementById("tab-Photos"));
+    if (countrySelect) {
+      countrySelect.value = pin.dataset.filterCountry;
+      countrySelect.dispatchEvent(new Event("change"));
+    }
+  });
 });
 
 applyFilters();

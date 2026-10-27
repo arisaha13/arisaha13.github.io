@@ -20,7 +20,9 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
+<style>/* MAP_PIN_STYLES */</style>
 </head>
 
 <body>
@@ -40,8 +42,9 @@
 
 
   <div class="tab" role="tablist" aria-label="Site sections">
-    <button type="button" class="tablinks" id="tab-Photos" role="tab" aria-selected="true" aria-controls="Photos" tabindex="0" onclick="openSection(event, 'Photos')">Photos</button>
-    <button type="button" class="tablinks" id="tab-About" role="tab" aria-selected="false" aria-controls="About" tabindex="-1" onclick="openSection(event, 'About')">About</button>
+    <button type="button" class="tablinks" id="tab-Photos" role="tab" aria-selected="true" aria-controls="Photos" tabindex="0" onclick="openSection(event)">Photos</button>
+    <button type="button" class="tablinks" id="tab-Map" role="tab" aria-selected="false" aria-controls="Map" tabindex="-1" onclick="openSection(event)">Map</button>
+    <button type="button" class="tablinks" id="tab-About" role="tab" aria-selected="false" aria-controls="About" tabindex="-1" onclick="openSection(event)">About</button>
   </div>
   <br>
   <br>
@@ -58,13 +61,21 @@
     </div>
   </div>
 
+  <div id="Map" class="tabcontent" role="tabpanel" aria-labelledby="tab-Map" hidden>
+    <div class="map-wrap">
+      <img class="map-image" src="map/world-map.svg" alt="World map" width="2000" height="857">
+<!-- MAP_PINS -->
+    </div>
+    <p class="map-hint">Click a pin to see photos from there.</p>
+  </div>
+
   <div id="About" class="tabcontent" role="tabpanel" aria-labelledby="tab-About" hidden>
     <div class="abt-columns">
       <div class="abt-column">
         <img src="about.webp" alt="Baron-san" height="500" width="375" loading="lazy" decoding="async">
       </div>
       <div class="abt-column">
-        <h2>Welcome to my blog :)</h2>&nbsp;
+        <h2 class="serif">Welcome to my blog :)</h2>&nbsp;
         <p class="about-text">I can't say for sure what this blog will entail, but I've always enjoyed learning about cool and obscure stories and my goal is to share even
           more of those over here. To that effect, I hope to make this a playground for me to try out different ideas and hobbies in order to bring as many of those to
           life, no matter the shape they take. </p>
@@ -77,7 +88,7 @@
     <button type="button" class="lightbox-prev" aria-label="Previous photo">&#8249;</button>
     <img id="lightbox-image" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBTAA7" alt="">
     <button type="button" class="lightbox-next" aria-label="Next photo">&#8250;</button>
-    <p id="lightbox-caption" class="lightbox-caption"></p>
+    <p id="lightbox-caption" class="lightbox-caption serif"></p>
   </div>
 
   <script src="script.js"></script>
