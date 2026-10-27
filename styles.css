@@ -10,13 +10,13 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --color-bg: #15120f;
-    --color-text: #ece6df;
-    --color-muted: #a99f93;
+    --color-bg: #000000;
+    --color-text: #f5f5f5;
+    --color-muted: #999999;
     --color-accent: #fda172;
-    --color-surface: #241f1a;
-    --color-card-bg: #201b17;
-    --color-border: #a9683f;
+    --color-surface: #141414;
+    --color-card-bg: #0d0d0d;
+    --color-border: #444444;
   }
 }
 
@@ -95,16 +95,41 @@ ul {
 
 .roll-tag {
   position: absolute;
-  top: 0.5em;
-  left: 0.5em;
-  padding: 0.25em 0.6em;
-  font-size: 0.7em;
-  letter-spacing: 0.02em;
-  background: rgba(0, 0, 0, 0.55);
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.35em 1.6em;
+  background: rgba(0, 0, 0, 0.65);
   color: #fff;
-  border-radius: 3px;
-  transform: rotate(-2deg);
+  font-family: "Courier New", monospace;
+  font-size: 0.68em;
+  letter-spacing: 0.04em;
+  text-align: center;
   pointer-events: none;
+}
+
+.roll-tag::before,
+.roll-tag::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 8px;
+  height: 8px;
+  background: #fff;
+  opacity: 0.85;
+}
+
+.roll-tag::before {
+  left: 0.5em;
+}
+
+.roll-tag::after {
+  right: 0.5em;
 }
 
 .image-gallery > li {
