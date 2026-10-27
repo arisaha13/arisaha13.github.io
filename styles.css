@@ -1,3 +1,25 @@
+:root {
+  --color-bg: #fffaf6;
+  --color-text: #2b2b2b;
+  --color-muted: #666;
+  --color-accent: #fda172;
+  --color-surface: #f5f5f5;
+  --color-card-bg: #ffffff;
+  --color-border: #fda172;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-bg: #000000;
+    --color-text: #f5f5f5;
+    --color-muted: #999999;
+    --color-accent: #fda172;
+    --color-surface: #141414;
+    --color-card-bg: #0d0d0d;
+    --color-border: #444444;
+  }
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -27,22 +49,22 @@ ul {
 
 .filter label {
   font-size: 0.85em;
-  color: #555;
+  color: var(--color-muted);
 }
 
 .filter select {
-  font-family: Open Sans;
+  font-family: "Open Sans", sans-serif;
   font-size: 1em;
   padding: 0.3em 0.6em;
-  border: 1px solid #fda172;
+  border: 1px solid var(--color-border);
   border-radius: 4px;
-  background-color: white;
-  color: #333;
+  background-color: var(--color-card-bg);
+  color: var(--color-text);
 }
 
 .filter-status {
   font-size: 0.9em;
-  color: #555;
+  color: var(--color-muted);
   margin-bottom: 1em;
 }
 
@@ -59,6 +81,7 @@ ul {
 
 .gallery-item {
   display: block;
+  position: relative;
   width: 100%;
   padding: 0;
   margin: 0;
@@ -66,6 +89,47 @@ ul {
   background: transparent;
   cursor: pointer;
   font: inherit;
+  overflow: hidden;
+}
+
+
+.roll-tag {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.35em 1.6em;
+  background: rgba(0, 0, 0, 0.65);
+  color: #fff;
+  font-family: "Courier New", monospace;
+  font-size: 0.68em;
+  letter-spacing: 0.04em;
+  text-align: center;
+  pointer-events: none;
+}
+
+.roll-tag::before,
+.roll-tag::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 8px;
+  height: 8px;
+  background: #fff;
+  opacity: 0.85;
+}
+
+.roll-tag::before {
+  left: 0.5em;
+}
+
+.roll-tag::after {
+  right: 0.5em;
 }
 
 .image-gallery > li {
@@ -113,6 +177,12 @@ body {
   font-family: "Open Sans", sans-serif;
   margin: 0;
   text-align: center;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+}
+
+.serif {
+  font-family: "Playfair Display", Georgia, serif;
 }
 
 /* Header/Logo Title */
@@ -121,9 +191,9 @@ a {
   color: white;
 }
 .site-header {
-  border-bottom: 1px solid #fda172;
-  background-color: #fda172;
-  color: #fda172;
+  border-bottom: 1px solid var(--color-accent);
+  background-color: var(--color-accent);
+  color: var(--color-accent);
   padding: .5em 1em;
 }
 
@@ -135,7 +205,7 @@ a {
 
 .site-identity {
   float: left;
-  color: #fda172;
+  color: var(--color-accent);
 }
 
 .site-identity h1 {
@@ -156,19 +226,19 @@ a {
 
 .site-navigation {
   float: right;
-  color: #fda172;
+  color: var(--color-accent);
 }
 
 .site-navigation ul, li {
   margin: 0;
   padding: 0;
-  color: #fda172;
+  color: var(--color-accent);
 }
 
 .site-navigation li {
   display: inline-block;
   margin: 1.4em 1em 1em 1em;
-  color: #fda172;
+  color: var(--color-accent);
 }
 
 /* Add media queries for responsiveness - when the screen is 500px wide or less, stack the links on top of each other */
@@ -194,11 +264,11 @@ a {
 .tab button {
     font-family: "Open Sans", sans-serif;
     cursor: pointer;
-    border: 0px solid #fda172;
+    border: 0px solid var(--color-accent);
     background-color: transparent;
     height: 50px;
     width: 350px;
-    color: #fda172;
+    color: var(--color-accent);
     font-size: 1.3em;
     opacity: 0.6;
     transition: 0.3s;
@@ -211,7 +281,7 @@ a {
 
 /* Create an active/current tablink class */
 .tab button.active {
-  background-color: #f5f5f5;
+  background-color: var(--color-surface);
 }
 
 .tabcontent {
@@ -244,6 +314,121 @@ a {
     display: table;
     clear: both;
   }
+}
+
+/* Map */
+.map-open-btn {
+  font-family: "Open Sans", sans-serif;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+  align-self: flex-end;
+  padding: 0.5em 0.9em;
+  border: 1px solid var(--color-border);
+  border-radius: 4px;
+  background: var(--color-card-bg);
+  color: var(--color-text);
+  cursor: pointer;
+  font-size: 0.95em;
+}
+
+.map-open-btn:hover {
+  background: var(--color-surface);
+}
+
+.map-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 1em;
+}
+
+.map-modal[hidden] {
+  display: none;
+}
+
+.map-modal-inner {
+  position: relative;
+  width: 100%;
+  max-width: 1100px;
+  max-height: 90vh;
+  overflow: auto;
+  background: var(--color-card-bg);
+  border-radius: 8px;
+  padding: 2.5em 1.5em 1.5em;
+}
+
+.map-modal-close {
+  position: absolute;
+  top: 0.3em;
+  right: 0.5em;
+  background: transparent;
+  border: 0;
+  color: var(--color-text);
+  font-size: 2em;
+  line-height: 1;
+  cursor: pointer;
+  padding: 0.2em 0.4em;
+}
+
+.map-wrap {
+  position: relative;
+}
+
+.map-image {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.map-pin {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--color-accent);
+  border: 2px solid var(--color-card-bg);
+  box-shadow: 0 0 0 2px var(--color-accent);
+  cursor: pointer;
+  padding: 0;
+}
+
+.map-pin:hover,
+.map-pin:focus-visible {
+  background: #fff;
+}
+
+.map-pin-label {
+  position: absolute;
+  bottom: 140%;
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+  background: var(--color-card-bg);
+  color: var(--color-text);
+  padding: 0.2em 0.6em;
+  border-radius: 4px;
+  font-size: 0.8em;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.15s;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.map-pin:hover .map-pin-label,
+.map-pin:focus-visible .map-pin-label {
+  opacity: 1;
+}
+
+.map-hint {
+  margin-top: 0.75em;
+  color: var(--color-muted);
+  font-size: 0.9em;
 }
 
 /* Lightbox / carousel */
