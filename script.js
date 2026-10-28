@@ -103,6 +103,7 @@ function showLightboxItem(item) {
   var img = item.querySelector("img");
   var caption = item.querySelector(".overlay span");
   lightboxImage.src = img.src;
+  lightboxImage.srcset = img.srcset;
   lightboxImage.alt = img.alt;
   lightboxCaption.textContent = caption ? caption.textContent : "";
 }
