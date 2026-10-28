@@ -10,7 +10,13 @@ const ROOT = path.join(__dirname, "..");
 const DIST = path.join(ROOT, "dist");
 const FILM_OUT = path.join(DIST, "Film");
 
-const GALLERY_MAX_WIDTH = 1600;
+// Four sizes per photo so mobile/narrow viewports don't download the same
+// bytes as a 4K desktop monitor. Thumbnails render at a fixed 360px CSS box
+// (see .image-gallery > li in styles.css) regardless of viewport, so 400w
+// covers 1x, 800w covers 2x, 1200w covers common 3x phones (360*3=1080),
+// and 1600w covers very high-DPR screens *and* doubles as the largest size
+// available to the lightbox (up to 85vw).
+const GALLERY_WIDTHS = [400, 800, 1200, 1600];
 const GALLERY_QUALITY = 78;
 
 // Pin positions in the map/world-map.svg viewBox (0 0 2000 857), picked by
@@ -45,11 +51,14 @@ function captionFor({ camera, film, location, country }) {
 }
 
 async function resizeToWebp(srcPath, destPath, maxWidth, quality) {
-  await sharp(srcPath)
+  const info = await sharp(srcPath)
     .rotate() // auto-orient using EXIF, then strip it
     .resize({ width: maxWidth, withoutEnlargement: true })
     .webp({ quality })
     .toFile(destPath);
+  return info.width; // actual output width, which withoutEnlargement can
+  // make smaller than maxWidth for already-small sources — the srcset "w"
+  // descriptor needs to match the real file, not the requested size.
 }
 
 function buildFilterOptions(manifest, key) {
@@ -118,17 +127,28 @@ async function buildGallery() {
   for (const photo of galleryOrder) {
     const { file, camera, film, location, country } = photo;
     const srcPath = path.join(ROOT, file);
-    const outName = path.parse(file).name + ".webp";
-    const outPath = path.join(FILM_OUT, outName);
+    const baseName = path.parse(file).name;
 
-    await resizeToWebp(srcPath, outPath, GALLERY_MAX_WIDTH, GALLERY_QUALITY);
+    const candidates = [];
+    for (const width of GALLERY_WIDTHS) {
+      const outName = `${baseName}-${width}.webp`;
+      const outPath = path.join(FILM_OUT, outName);
+      const actualWidth = await resizeToWebp(srcPath, outPath, width, GALLERY_QUALITY);
+      candidates.push({ outName, actualWidth });
+    }
+    // Widest actual output doubles as the plain `src` fallback and is what
+    // the lightbox starts from before srcset/sizes take over.
+    const largest = candidates[candidates.length - 1];
+    const srcset = candidates
+      .map((c) => `Film/${c.outName} ${c.actualWidth}w`)
+      .join(", ");
 
     const caption = captionFor(photo);
     const alt = `${location}, ${country}`;
     const rollTag = film ? `${camera} · ${film}` : camera;
     items.push(`        <li data-country="${escapeHtml(country)}" data-camera="${escapeHtml(camera)}" data-film="${escapeHtml(film || "")}">
           <button type="button" class="gallery-item" aria-label="View photo: ${escapeHtml(caption)}">
-            <img src="Film/${outName}" alt="${escapeHtml(alt)}" loading="lazy" decoding="async">
+            <img src="Film/${largest.outName}" srcset="${escapeHtml(srcset)}" sizes="360px" alt="${escapeHtml(alt)}" loading="lazy" decoding="async">
             <span class="roll-tag">${escapeHtml(rollTag)}</span>
           </button>
           <div class="overlay"><span>${escapeHtml(caption)}</span></div>
